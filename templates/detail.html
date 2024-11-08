@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h2>{{ image.title }} by {{ image.flickr_user }}</h2>
+        <img src="/static/images/{{ image.id }}.jpg" class="img-fluid" alt="Image">
+        <p>{{ pic_info.mode }} image in {{ pic_info.format }} format with width of {{ pic_info.width}} and height of {{ pic_info.height}}</p>
+        <a href="{{ url_for('index') }}">Back to list of images</a>
+    </div>
+</body>
+</html>

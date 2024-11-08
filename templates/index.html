@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Random Images</title>
+    {{ bootstrap.load_css() }}
+</head>
+<body>
+    <div class="container">
+        <h2 class="card-title">Jessika's Random Picture Gallery</h2>
+        <div class="row">
+            {% for image in images %}
+                <div class="col-md-4">
+                    <a href="{{ url_for('ran_img', image_id=image.id) }}">
+                        <img src="/static/images/{{ image.id }}.jpg" class="img-fluid" alt="Random Image">
+                    </a>
+                    <a href="{{ url_for('ran_img', image_id=image.id) }}">
+                        <h3>{{ image.title }}</h3>
+                    </a>
+                    <a href="{{ url_for('ran_img', image_id=image.id) }}">
+                        <p>{{ image.title }}</p>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
+
