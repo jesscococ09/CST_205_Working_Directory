@@ -30,21 +30,21 @@ image_info = [
   {
     "id" : "12781079433_f66f128d11_c",
     "title" : "Sanaga River",
-    "flickr_user" : "canonim",
+    "flickr_user" : "Canonim",
     "tags" : [ "Cameroon", "Africa", "bridge", "motorcycle", "road", "overcast"],
     "url" : "https://www.flickr.com/photos/canad/12781079433/"
   },
   {
     "id" : "12943572274_44afbcaa5d_c",
     "title" : "Kunlun Mountain",
-    "flickr_user" : "pacman321",
+    "flickr_user" : "Pacman321",
     "tags" : ["Yecheng", "landscape", "horizon", "China", "mountains", "overcast"],
     "url" : "https://www.flickr.com/photos/mzhang88/12943572274"
   },
   {
     "id" : "6277422540_2c19365479_c",
     "title" : "Menara Gardens and Pavilion",
-    "flickr_user" : "sofianeb",
+    "flickr_user" : "Sofianeb",
     "tags" : ["Marrakesh", "Morocco", "olives", "peaceful", "purple", "reservoir"],
     "url" : "https://www.flickr.com/photos/sofianeb/6277422540"
   },
@@ -65,7 +65,7 @@ image_info = [
   {
     "id" : "2152601472_55fb809919_c",
     "title" : "Bulevardul Libertatii",
-    "flickr_user" : "megatick",
+    "flickr_user" : "Megatick",
     "tags" : ["Bucharest", "Romania", "boulevard", "road", "building", "overcast", "grass"],
     "url" : "https://www.flickr.com/photos/megatick/2152601472"
   }

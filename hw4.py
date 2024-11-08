@@ -1,46 +1,46 @@
-from flask import Flask, render_template , send_file
+from flask import Flask, render_template
 from flask_bootstrap import Bootstrap5
 from image_info import image_info
-from PIL import Image, ImageOps 
-import random
-
-app = Flask(__name__)
-
-import random
-from flask import Flask, render_template
-from image_info import image_info
-
-app = Flask(__name__)
-
-import random
-from flask import Flask, render_template
-from image_info import image_info
 from PIL import Image
+import os
+import random
+#name: Jessika Torrealba
+#class:CST205
+# date: 08 Nov 2024
+# comment: none
 
 app = Flask(__name__)
 
-def get_random_images(image_info):
-    shuffled_images = image_info[:] 
-    random.shuffle(shuffled_images)
-    selected_images = shuffled_images[:3]
+
+def get_random_images_from_static(static_folder, image_info, num_images=3):
+    # Get all image files from the static folder
+    image_files = [f for f in os.listdir(static_folder) if f.endswith('.jpg')]
+    random.shuffle(image_files)
+    selected_images = image_files[:num_images]
     image_data = []
-    for image in random_images:
-        image_id = image["id"]
-        title = image["title"]
-        author = image["flickr_user"]
-        image_data.append({ "id": image_id, "title": title, "author": author})
+    for image_file in selected_images:
+        image_id = os.path.splitext(image_file)[0]
+        image_info_data = next((img for img in image_info if img["id"] == image_id), None)
+        if image_info_data:
+            title = image_info_data["title"]
+            author = image_info_data["flickr_user"]
+            image_data.append({"id": image_id, "title": title, "author": author})
     return image_data
 
 @app.route('/')
 def index():
-    random_image_data = get_random_images(image_info)
+    static_folder = 'static'
+    random_image_data = get_random_images_from_static(static_folder, image_info)
     return render_template('index.html', images=random_image_data)
 
-@app.route('/picture/[image_id]')
-def ran_img():
-    image_path = f'static/images/{image_id}.jpg'
+@app.route('/picture/<image_id>')
+def ran_img(image_id):
+    image_info_data = next((img for img in image_info if img["id"] == image_id), None)
+    image_path = f'static/{image_id}.jpg'
     img = Image.open(image_path)
-    pic_info = {"mode": img.mode, "format": img.format,"height": img.height, "width": img.width}
-    return render_template('detail.html',pic_info=pic_info)
-   
+    pic_info = {"mode": img.mode, "format": img.format, "height": img.height, "width": img.width}
+    return render_template('detail.html', image=image_info_data, pic_info=pic_info)
+
 bootstrap = Bootstrap5(app)
+
+

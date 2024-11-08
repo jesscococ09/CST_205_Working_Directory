@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>hw4</title>
+    {{ bootstrap.load_css() }}
 </head>
 <body>
     <div class="container">
         <h2>{{ image.title }} by {{ image.flickr_user }}</h2>
-        <img src="/static/images/{{ image.id }}.jpg" class="img-fluid" alt="Image">
+        <img src="{{ url_for('static', filename=image.id ~ '.jpg') }}" class="w-50" alt="Random Image">
         <p>{{ pic_info.mode }} image in {{ pic_info.format }} format with width of {{ pic_info.width}} and height of {{ pic_info.height}}</p>
         <a href="{{ url_for('index') }}">Back to list of images</a>
     </div>

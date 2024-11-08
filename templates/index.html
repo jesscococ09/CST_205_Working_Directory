@@ -3,23 +3,25 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Random Images</title>
+    <title>cst205hw4_lab</title>
     {{ bootstrap.load_css() }}
+    <style>
+        .center-title {text-align: center;}
+        .image-container {margin-bottom: 40px;text-align: center;}
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h2 class="card-title">Jessika's Random Picture Gallery</h2>
-        <div class="row">
+    <div class="container mb-4">
+        <h2 class="card-title center-title">Jessika's Random Picture Gallery</h2>
+        <div class="d-flex flex-column align-items-center">
             {% for image in images %}
-                <div class="col-md-4">
+                <div class="image-container">
+                    <br>
                     <a href="{{ url_for('ran_img', image_id=image.id) }}">
-                        <img src="/static/images/{{ image.id }}.jpg" class="img-fluid" alt="Random Image">
+                    <p>{{ image.title }}</p>
                     </a>
                     <a href="{{ url_for('ran_img', image_id=image.id) }}">
-                        <h3>{{ image.title }}</h3>
-                    </a>
-                    <a href="{{ url_for('ran_img', image_id=image.id) }}">
-                        <p>{{ image.title }}</p>
+                    <img src="{{ url_for('static', filename=image.id ~ '.jpg') }}" class="img-fluid w-50" alt="Random Image">
                     </a>
                 </div>
             {% endfor %}
@@ -27,4 +29,7 @@
     </div>
 </body>
 </html>
+
+
+
 
